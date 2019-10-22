@@ -23,4 +23,9 @@ $ cd flutter
 $ make flutter
 ```
 
+When installing xcode (init by makefile) you need your Administrator password
+
+afterwards you can enter q and next you should type agree to accept the license
+
+
 Feedback philipp.kropp@gmail.com

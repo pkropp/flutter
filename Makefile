@@ -42,9 +42,12 @@ init:
 	# install wget if needed
 	brew install wget
 
-	[ -f $(PWD)/flutter_macos_v1.9.1+hotfix.5-stable.zip ] && echo "Found" || @wget https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.9.1+hotfix.5-stable.zip -P .
+	#[ -f $(PWD)/flutter_macos_v1.9.1+hotfix.5-stable.zip ] && echo "Found" || echo "not found"
+	@wget https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.9.1+hotfix.5-stable.zip -P .
 
-	[ -d $(PWD)/flutter ] && echo "schon entpackt" || unzip $(PWD)/flutter_macos_v1.9.1+hotfix.5-stable.zip
+	#[ -d $(PWD)/flutter ] && echo "schon entpackt" || unzip $(PWD)/flutter_macos_v1.9.1+hotfix.5-stable.zip
+
+	unzip $(PWD)/flutter_macos_v1.9.1+hotfix.5-stable.zip
 
 	# alternative download to stay up to date
 	#  https://github.com/flutter/flutter/archive/master.zip
