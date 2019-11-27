@@ -11,6 +11,9 @@ Requirements
 * On Windows Makefile is not that well supported (you need to install it for Windows or might work in build in Linux)
 * Git
 
+Download Android Studio
+https://developer.android.com/studio/index.html#downloads
+
 ```bash
 $ git clone https://github.com/pkropp/flutter
 ```
