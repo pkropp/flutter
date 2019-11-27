@@ -55,9 +55,11 @@ flutter:
 pathneededcheck:
 	echo $(PATHSET)
 	if $(PATHSET) == true; then echo "bash Pfad in ~/.bash_profile ist schon hinzugefügt"; else echo 'export PATH="$$PATH:$(shell echo $$PWD)/flutter/bin:$$HOME/.pub-cache/bin"' >> ~/.bash_profile; fi
+	$(shell source ~/.bash_profile)
 
 	echo $(ZSHPATHSET)
 	if $(ZSHPATHSET) == true; then echo "zsh Pfad in ~/.zshrc ist schon hinzugefügt"; else echo 'export PATH="$$PATH:$(shell echo $$PWD)/flutter/bin:$$HOME/.pub-cache/bin"' >> ~/.zshrc; fi
+	$(shell source ~/.zshrc)
 
 flutter-from-git:
 	@if [ -d "flutter" ]; then echo "flutter folder already there"; else git clone -b stable https://github.com/flutter/flutter.git; fi
@@ -111,7 +113,8 @@ dependencies:
 	# open -a Simulator
 
 postinstall:
-	flutter doctor
+	@if command -v flutter == ''; then flutter doctor; else echo "flutter not found"; fi
+
 	flutter precache
 
 	# how to check if existing?
